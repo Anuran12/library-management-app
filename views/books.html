@@ -32,34 +32,30 @@
                       </li>
                       <% } %>
 
-                        <li class="nav-item dropdown mr-3">
-                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-user"></i> Welcome <%=user.username%>
-                          </a>
-                          <div class="dropdown-menu">
-                            <%if(!currentUser.isAdmin) { %>
-                              <a href="/user/1/profile" class="dropdown-item">
-                                <i class="fa fa-user-circle"></i> Profile
-                              </a>
-                              <a href="/auth/user-logout" class="dropdown-item">
-                                <i class="fa fa-user-times"></i> Logout
-                              </a>
-                              <% } else { %>
-                                <a href="/admin/profile" class="dropdown-item">
-                                  <i class="fa fa-user-circle"></i> Profile
-                                </a>
-                                <a href="/auth/user-logout" class="dropdown-item">
-                                  <i class="fa fa-user-times"></i> Logout
-                                </a>
-                                <% } %>
-                          </div>
-                        </li>
 
-                        <li class="nav-item">
-                          <a href="/user/1/notification" class="nav-link">
-                            <i class="fa fa-bell"></i><span class="badge badge-danger badge-pill">2</span>
-                          </a>
-                        </li>
+                    <%if(!currentUser.isAdmin) { %>
+                      <li class="nav-item dropdown mr-3">
+                        <a href="/user/1" class="nav-link">
+                          <i class="fa fa-user"></i> Welcome <%=user.username%>
+                        </a>
+                      </li>
+                      <li class="nav-item dropdown mr-3">
+                        <a href="/auth/user-logout" class="nav-link">
+                          <i class="fa fa-user-times"></i> Logout
+                        </a>
+                      </li>
+                    <% } else { %>
+                      <li class="nav-item dropdown mr-3">
+                        <a href="/admin/profile" class="nav-link">
+                          <i class="fa fa-user"></i> Welcome <%=user.username%>
+                        </a>
+                      </li>
+                      <li class="nav-item dropdown mr-3">
+                        <a href="/auth/admin-logout" class="nav-link">
+                          <i class="fa fa-user-times"></i> Logout
+                        </a>
+                      </li>
+                    <% } %>
                   </ul>
                   <% } else { %>
                     <a href="/signUp" class="btn btn-primary btn-sm ml-auto">Sign up</a>
@@ -104,6 +100,7 @@
           <% for(var i=0; i < books.length; i++) { %>
             <div class="card col-md-3 text-center">
               <div class="card-body">
+                <img src="<%=books[i].imgurl%>" style="width: 100%; height: auto; padding-bottom: 10px;" alt="<%=books[i].title%>">
                 <h5 class="card-title">
                   <%=books[i].title%>
                 </h5>

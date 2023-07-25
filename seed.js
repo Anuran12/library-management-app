@@ -15,6 +15,7 @@ async function seed(limit) {
         let index2 = Math.floor(Math.random() * Math.floor(11));
         try {
             const book = new Book({
+                imgurl: faker.lorem.words(),
                 title: faker.lorem.words(),
                 ISBN: faker.random.uuid(),
                 stock: 10,

@@ -12,6 +12,12 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <form action="/admin/book/update/<%=book._id%>" method="POST">
+
+        <div class="form-group">
+          <label class="form-control-label">Edit imgurl</label>
+          <input type="text" name="book[imgurl]" class="form-control" value="<%=book.imgurl%>" />
+        </div>
+
         <div class="form-group">
           <label for="title" class="form-control-label">Edit Title</label>
           <input name="book[title]" type="text" class="form-control" value="<%=book.title%>" />

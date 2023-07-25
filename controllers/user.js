@@ -204,6 +204,7 @@ exports.postIssueBook = async (req, res, next) => {
     const issue = new Issue({
       book_info: {
         id: book._id,
+        imgurl: book.imgurl,
         title: book.title,
         author: book.author,
         ISBN: book.ISBN,
